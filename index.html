@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESSZENBIO 臻萃研 | 靶向活性配方與臨床比較系統</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #0b1120; color: #f8fafc; padding-bottom: 80px; }
+        .glass-card { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); margin-bottom: 2rem; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
+        .text-gold { color: #d4af37; }
+        .bg-gold { background-color: #d4af37; }
+        .border-gold { border-color: #d4af37; }
+        .bg-red-alert { background-color: #ef4444; }
+        .bg-gray-competitor { background-color: #64748b; }
+        .bg-gray-original { background-color: #334155; }
+        .gradient-text { background: linear-gradient(to right, #fbbf24, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-slide-in { animation: slideIn 0.6s ease-out forwards; }
+        
+        .bar-container { width: 100%; height: 24px; background: rgba(0,0,0,0.4); border-radius: 12px; overflow: hidden; position: relative; margin-top: 8px; border: 1px solid rgba(255,255,255,0.05); }
+        .bar-fill { height: 100%; border-radius: 12px; display: flex; align-items: center; padding-left: 12px; font-weight: 700; font-size: 0.85rem; transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; margin-right: 6px; margin-bottom: 6px; }
+        .tag-aqua { background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2); }
+        .tag-oil { background: rgba(251, 191, 36, 0.1); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.2); }
+        .tag-bio { background: rgba(167, 139, 250, 0.1); color: #a78bfa; border: 1px solid rgba(167, 139, 250, 0.2); }
+        .tag-science { background: rgba(52, 211, 153, 0.1); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.2); }
+    </style>
+</head>
+<body class="p-4 md:p-8 selection:bg-gold selection:text-black">
+
+    <div class="max-w-5xl mx-auto">
+        
+        <!-- 首頁：科學定錨與核心戰略 -->
+        <div class="glass-card rounded-3xl p-8 md:p-12 animate-slide-in relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-gold opacity-10 rounded-full blur-[80px] pointer-events-none"></div>
+            
+            <div class="text-center mb-10">
+                <p class="text-gold font-bold tracking-[0.2em] text-sm mb-2">CLINICAL DERMATOLOGY SYSTEM</p>
+                <h1 class="text-4xl md:text-5xl font-black mb-4">👑 ESSZENBIO 臻萃研</h1>
+                <h2 class="text-xl md:text-2xl gradient-text font-bold">仿生皮脂與靶向活性配方・AI 評估系統</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-slate-800/80 rounded-2xl p-6 border border-slate-700">
+                    <h3 class="text-lg font-bold mb-3 text-white flex items-center gap-2">🧬 醫美級 INCHI 成分靶向</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">捨棄傳統乳化劑包袱。我們透過 AI 皮膚數據檢測，運用 <strong>[源] 水相細胞保護</strong> 與 <strong>[潤] 油酸物理微破壞</strong> 作為雙前導引擎，將 <strong>Compound K、10-HDA、傳明酸</strong> 等高濃度微分子精準送達真皮層，實現「促新生、抗降解、降發炎」的三維立體修護。</p>
+                </div>
+                <div class="bg-slate-800/80 rounded-2xl p-6 border border-slate-700">
+                    <h3 class="text-lg font-bold mb-3 text-white flex items-center gap-2">⏱️ 順應日夜節律 (Circadian Rhythm)</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">保養必須順應環境氣候與生理時鐘。日間強化抗光老與阻斷發炎 (MMP-1 抑制)；夜間針對高通透性與 TEWL 飆升，利用液晶結構與 3:1:1 脂質黃金三角進行細胞再生與深層組織重建。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 六大核心原萃圖解 -->
+        <div class="mb-10 animate-slide-in" style="animation-delay: 0.1s;">
+            <h3 class="text-xl font-bold text-center mb-6 text-slate-200">🔬 6 大核心活性精華 (Booster)</h3>
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-3">
+                <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-blue-500/20 relative">
+                    <span class="block text-2xl mb-1 text-blue-400 font-black">源</span>
+                    <span class="block text-sm font-bold text-slate-200 mb-1">補水・滲透防護</span>
+                    <span class="text-[10px] text-slate-400">Aqualance™ 水封套</span>
+                </div>
+                <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-amber-500/20 relative">
+                    <span class="block text-2xl mb-1 text-amber-400 font-black">潤</span>
+                    <span class="block text-sm font-bold text-slate-200 mb-1">促透・角質軟化</span>
+                    <span class="text-[10px] text-slate-400">高濃度油酸微通道</span>
+                </div>
+                <div class="bg-slate-800/50 p-4 pt-5 rounded-xl text-center border border-purple-500/40 relative shadow-[0_0_15px_rgba(168,85,247,0.15)]">
+                    <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-[9px] md:text-[8px] lg:text-[9px] font-black px-2 py-0.5 rounded shadow whitespace-nowrap z-10">蜂王漿水解精華 0.5-1.5%</div>
+                    <span class="block text-2xl mb-1 text-purple-400 font-black">丰</span>
+                    <span class="block text-sm font-bold text-slate-200 mb-1">緊緻・輪廓拉提</span>
+                    <span class="text-[10px] text-slate-400">10-HDA 蜂王胜肽</span>
+                </div>
+                <div class="bg-slate-800/50 p-4 pt-5 rounded-xl text-center border border-rose-500/40 relative shadow-[0_0_15px_rgba(244,63,94,0.15)]">
+                    <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-rose-600 text-white text-[9px] md:text-[8px] lg:text-[9px] font-black px-2 py-0.5 rounded shadow whitespace-nowrap z-10">蜂王漿水解精華 7-10%</div>
+                    <span class="block text-2xl mb-1 text-rose-400 font-black">澤</span>
+                    <span class="block text-sm font-bold text-slate-200 mb-1">淨白・退紅修護</span>
+                    <span class="text-[10px] text-slate-400">蜂王漿與 TXA 阻斷</span>
+                </div>
+                <div class="bg-slate-800/50 p-4 pt-5 rounded-xl text-center border border-emerald-500/40 relative shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+                    <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-[9px] md:text-[8px] lg:text-[9px] font-black px-2 py-0.5 rounded shadow whitespace-nowrap z-10">人參皂苷水解精華(富含 CK) 4-5%</div>
+                    <span class="block text-2xl mb-1 text-emerald-400 font-black">炁</span>
+                    <span class="block text-sm font-bold text-slate-200 mb-1">撫紋・對抗光氧化</span>
+                    <span class="text-[10px] text-slate-400">Compound K 皂苷</span>
+                </div>
+                <div class="bg-slate-800/50 p-4 pt-5 rounded-xl text-center border border-orange-500/40 relative shadow-[0_0_15px_rgba(249,115,22,0.15)]">
+                    <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-orange-600 text-white text-[9px] md:text-[8px] lg:text-[9px] font-black px-2 py-0.5 rounded shadow whitespace-nowrap z-10">類黃酮素,沙棘果油,維生素 C 3-8%</div>
+                    <span class="block text-2xl mb-1 text-orange-400 font-black">蘊</span>
+                    <span class="block text-sm font-bold text-slate-200 mb-1">修護・仿生脂質</span>
+                    <span class="text-[10px] text-slate-400">Omega-7 沙棘極萃</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 專利精準萃取與高劑量 INCHI 說帖 (核心差異化優勢) -->
+        <div class="glass-card rounded-3xl p-6 md:p-10 animate-slide-in relative overflow-hidden border border-gold/40 shadow-[0_0_20px_rgba(212,175,55,0.1)]" style="animation-delay: 0.12s;">
+            <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-yellow-500 opacity-5 rounded-full blur-[60px] pointer-events-none"></div>
+            
+            <div class="text-center mb-8">
+                <span class="bg-gold/20 text-gold text-xs font-black px-3 py-1 rounded-full uppercase tracking-widest border border-gold/30">Competitive Advantage</span>
+                <h2 class="text-2xl md:text-3xl font-black mt-4 mb-3 text-white">🔬 高值化精準萃取 × 治療級 INCHI 濃度</h2>
+                <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-3xl mx-auto">
+                    為什麼我們能超越國際頂奢品牌的修護力？因為我們拒絕「概念性添加 (Fairy Dusting)」。ESSZENBIO 掌握尖端酵素水解與精準萃取技術，將高純度活性物以**極高劑量**直接入配方，提供市售保養品難以企及的真實功效。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-5 mb-8">
+                <!-- 蜂王漿 -->
+                <div class="bg-slate-900/60 rounded-2xl p-5 border border-slate-700/80 hover:border-gold/50 transition duration-300">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-purple-900/50 flex items-center justify-center text-purple-400 text-xl font-black border border-purple-500/30">🐝</div>
+                        <h4 class="font-bold text-white">蜂王漿水解精華</h4>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 mb-3">
+                        <li><span class="text-gold font-bold">🧪 尖端水解：</span>經 LC-MS 質譜儀驗證，酵素水解成功將大分子蛋白質轉化為 <strong class="text-purple-300">&lt;10kDa 的小分子胜肽</strong>，吸收率呈指數級躍升。</li>
+                        <li><span class="text-gold font-bold">📈 醫美級濃度：</span>在 [澤] 中添加量高達 <strong class="text-white text-sm bg-purple-600/30 px-1 rounded">7.0% ~ 10.0%</strong>；[丰] 中亦有 0.5%~1.5%。</li>
+                    </ul>
+                    <div class="bg-slate-800 p-3 rounded-lg border border-slate-600/50">
+                        <p class="text-[11px] text-slate-300"><strong class="text-rose-400">⚔️ 配方特色：</strong>市售蜂王漿保養品多為大分子，且濃度通常低於 1%。我們的醫療級濃度與微分子 10-HDA，能真正深達真皮層刺激膠原新生。</p>
+                    </div>
+                </div>
+
+                <!-- 人參 CK -->
+                <div class="bg-slate-900/60 rounded-2xl p-5 border border-slate-700/80 hover:border-gold/50 transition duration-300">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-emerald-900/50 flex items-center justify-center text-emerald-400 text-xl font-black border border-emerald-500/30">🌿</div>
+                        <h4 class="font-bold text-white">人參皂苷轉化精華</h4>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 mb-3">
+                        <li><span class="text-gold font-bold">🧪 標靶轉化：</span>獨家技術將難以吸收的巨分子 Rb1，精準轉化為高生物利用率的珍稀小分子 <strong class="text-emerald-300">Compound K (CK)</strong>。</li>
+                        <li><span class="text-gold font-bold">📈 醫美級濃度：</span>在 [炁] 中的人參精華佔比高達 <strong class="text-white text-sm bg-emerald-600/30 px-1 rounded">4.0% ~ 5.0%</strong>，建構極強大的抗光老屏障。</li>
+                    </ul>
+                    <div class="bg-slate-800 p-3 rounded-lg border border-slate-600/50">
+                        <p class="text-[11px] text-slate-300"><strong class="text-rose-400">⚔️ 配方特色：</strong>傳統人參保養品常受限於分子過大無法吸收。我們的高濃度 CK 不僅能被吸收，更能主動誘導 HAS2 基因，讓肌膚「自體生成玻尿酸」。</p>
+                    </div>
+                </div>
+
+                <!-- 沙棘果 -->
+                <div class="bg-slate-900/60 rounded-2xl p-5 border border-slate-700/80 hover:border-gold/50 transition duration-300">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-orange-900/50 flex items-center justify-center text-orange-400 text-xl font-black border border-orange-500/30">🟠</div>
+                        <h4 class="font-bold text-white">沙棘全果極萃</h4>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 mb-3">
+                        <li><span class="text-gold font-bold">🧪 完整封存：</span>低溫精準控管，完整保留高達 <strong class="text-orange-300">1.3% 的類黃酮</strong>與極珍貴的天然 Omega-7 脂肪酸。</li>
+                        <li><span class="text-gold font-bold">📈 醫美級濃度：</span>在 [蘊] 乾爽油中，頂級沙棘果油佔比高達 <strong class="text-white text-sm bg-orange-600/30 px-1 rounded">3.0% ~ 8.0%</strong>，打造屏障修護黃金三角。</li>
+                    </ul>
+                    <div class="bg-slate-800 p-3 rounded-lg border border-slate-600/50">
+                        <p class="text-[11px] text-slate-300"><strong class="text-rose-400">⚔️ 配方特色：</strong>多數專櫃精華油使用大量廉價合成酯稀釋。我們投入高達 8% 的頂級沙棘油，其豐富的 Omega-7 能提供無可取代的微創組織修復力。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-gold/20 to-yellow-600/10 rounded-xl p-4 border-l-4 border-gold text-sm text-slate-200">
+                <strong class="text-gold">💎 專業臨床總結：</strong>當消費者購買國際大牌時，往往買到的是 90% 的水與基底，加上不到 1% 的微量活性物。ESSZENBIO 透過 <strong>「精準萃取技術」</strong> 搭配 <strong>「極致高劑量配方 (4%~10%)」</strong>，將每一分預算都轉化為肉眼可見的細胞級修護效能，這就是我們無可取代的底氣。
+            </div>
+        </div>
+
+        <!-- 組合 A -->
+        <div class="glass-card rounded-3xl p-6 md:p-8 animate-slide-in relative" style="animation-delay: 0.15s;">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-5 border-b border-slate-700 pb-5">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-black text-white flex items-center gap-2">🅰️ 組合 A：澎彈拉提組</h2>
+                    <p class="text-sm md:text-base text-slate-400 mt-2 font-medium">【源+潤+丰】 ｜ 液晶屏障重建・真皮層緊緻重塑</p>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <div class="bg-purple-900/50 border border-purple-400/50 rounded px-2.5 py-1 flex flex-wrap items-center gap-1.5 shadow-[0_0_12px_rgba(168,85,247,0.3)]">
+                            <span class="text-[10px] bg-purple-500 text-white px-1.5 py-0.5 rounded font-black tracking-widest">蜂王漿水解精華</span>
+                            <span class="text-xs text-purple-100 font-bold">10-HDA 胜肽</span>
+                            <span class="text-sm text-gold font-black ml-1">0.5~1.5%</span>
+                        </div>
+                        <span class="tag tag-science mt-1">微脂囊維他命C (MAP/AP)</span>
+                        <span class="tag tag-oil mt-1">Olivem 1000 液晶結構</span>
+                    </div>
+                </div>
+                <div class="text-left md:text-right mt-4 md:mt-0 price-block" data-base="9340">
+                    <p class="text-sm text-slate-400 line-through mb-1">原定價 $<span class="display-base">9,340</span></p>
+                    <span class="text-gold font-black text-3xl md:text-4xl display-new">$8,220</span>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <div class="bar-container"><div class="bar-fill bg-gray-original text-slate-300" style="width: 100%;">原定價 $9,340</div></div>
+                <div class="bar-container bar-price-block border-gold/30" data-base="9340"><div class="bar-fill bg-gold text-black" style="width: 88%;">專屬優惠 $<span class="bar-display-new">8,220</span></div></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700/50">
+                    <h4 class="font-bold text-purple-400 mb-2 text-sm">🔬 臨床科學解析</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        利用「丰」中特有的 <strong>10-HDA (癸烯酸)</strong>，作為強效信號分子誘導 TGF-β1 生成，直接刺激纖維母細胞增殖，提升第一型膠原蛋白合成。搭配 <strong>Olivem 1000</strong> 仿生液晶結構，於肌膚表面自組裝人工皮脂膜，在夜間黃金修護期提供極佳的封閉性抗老效能。
+                    </p>
+                </div>
+                <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700/50">
+                    <h4 class="font-bold text-gold mb-2 text-sm">✨ 配方特色</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        針對乾燥、失去彈力且結構塌陷的熟齡肌膚有極佳重塑效果。透過掌心調配，高濃度胜肽與奈米微脂囊能溫柔滲透，像給肌膚喝飽了水，深層修護一整天的疲憊與暗沈，找回健康的彈性。
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-4 bg-cyan-950/40 rounded-xl p-4 border border-cyan-800/50">
+                <h4 class="font-bold text-cyan-400 mb-3 text-sm flex items-center gap-2">🤖 AI 膚質指標適配 & ⏱️ 日夜節律策略 (Circadian Rhythm)</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-[13px] text-slate-300 leading-relaxed"><strong class="text-cyan-300">🎯 AI 檢測配對：</strong>極適宜「細紋密度 > 50%、紋理粗糙度 > 40%、U區光澤度 < 30%」。針對乾燥塌陷肌具重塑效果；若「T區光澤度 > 70% 且 紅區面積 > 50% (發炎中)」建議避開。</p>
+                    </div>
+                    <div>
+                        <p class="text-[13px] text-slate-300 leading-relaxed"><strong class="text-cyan-300">🌙 節律策略 (夜間主力)：</strong>日間高溫高濕易使高封閉性的液晶結構造成皮脂受阻。建議於夜間肌膚「細胞再生期 (通透性最高)」使用，發揮最強大的深度緊緻功效。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 組合 B -->
+        <div class="glass-card rounded-3xl p-6 md:p-8 animate-slide-in relative" style="animation-delay: 0.2s;">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-5 border-b border-slate-700 pb-5">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-black text-white flex items-center gap-2">🅱️ 組合 B：逆齡撫紋組</h2>
+                    <p class="text-sm md:text-base text-slate-400 mt-2 font-medium">【源+潤+炁】 ｜ 阻斷光老化・啟動內源性玻尿酸</p>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <div class="bg-emerald-900/50 border border-emerald-400/50 rounded px-2.5 py-1 flex flex-wrap items-center gap-1.5 shadow-[0_0_12px_rgba(16,185,129,0.3)]">
+                            <span class="text-[10px] bg-emerald-500 text-white px-1.5 py-0.5 rounded font-black tracking-widest">人參皂苷水解精華(富含 CK)</span>
+                            <span class="text-xs text-emerald-100 font-bold">阻斷光老化</span>
+                            <span class="text-sm text-gold font-black ml-1">4.0~5.0%</span>
+                        </div>
+                        <span class="tag tag-science mt-1">Matrixyl 經典五胜肽 1~3%</span>
+                        <span class="tag tag-aqua mt-1">高濃度積雪草 (CICA) 2~5%</span>
+                    </div>
+                </div>
+                <div class="text-left md:text-right mt-4 md:mt-0 price-block" data-base="9340">
+                    <p class="text-sm text-slate-400 line-through mb-1">原定價 $<span class="display-base">9,340</span></p>
+                    <span class="text-gold font-black text-3xl md:text-4xl display-new">$8,220</span>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <div class="bar-container"><div class="bar-fill bg-gray-original text-slate-300" style="width: 100%;">原定價 $9,340</div></div>
+                <div class="bar-container bar-price-block border-gold/30" data-base="9340"><div class="bar-fill bg-gold text-black" style="width: 88%;">專屬優惠 $<span class="bar-display-new">8,220</span></div></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700/50">
+                    <h4 class="font-bold text-emerald-400 mb-2 text-sm">🔬 臨床科學解析</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        針對日間高強度紫外線引發的光老化。核心成分 <strong>Compound K</strong> 展現雙軌機制：強力阻斷誘發的 MMP-1 (膠原蛋白酶) 活化，防止膠原纖維降解；同時誘導 <strong>HAS2 基因</strong>，啟動肌膚自主合成玻尿酸。搭配 CICA 打造無發炎的健康微環境。
+                    </p>
+                </div>
+                <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700/50">
+                    <h4 class="font-bold text-gold mb-2 text-sm">✨ 配方特色</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        極度適合於高紫外線強度的日間防禦。無油水相的「炁」膚感輕盈，將珍貴的人參化為更好吸收的微分子，針對雨滴型毛孔與細紋進行深度滋養，溫暖地送進肌底，感受肌膚慢慢變得緊緻澎潤。
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-4 bg-cyan-950/40 rounded-xl p-4 border border-cyan-800/50">
+                <h4 class="font-bold text-cyan-400 mb-3 text-sm flex items-center gap-2">🤖 AI 膚質指標適配 & ⏱️ 日夜節律策略 (Circadian Rhythm)</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-[13px] text-slate-300 leading-relaxed"><strong class="text-cyan-300">🎯 AI 檢測配對：</strong>極適宜「細紋密度 > 60%、毛孔密度 > 50% (老化雨滴型毛孔)」。若「紅區面積 > 60% (急性發炎中)」應避免使用前導油酸刺激。</p>
+                    </div>
+                    <div>
+                        <p class="text-[13px] text-slate-300 leading-relaxed"><strong class="text-cyan-300">☀️ 節律策略 (日間防禦)：</strong>極適合高強度紫外線的日間防禦。Compound K 能強力阻斷 MMP-1 活化，為肌膚提供隱形抗光老盾牌；無油基底即使炎熱高溫也毫無負擔。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 組合 C -->
+        <div class="glass-card rounded-3xl p-6 md:p-8 animate-slide-in relative" style="animation-delay: 0.25s;">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-5 border-b border-slate-700 pb-5">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-black text-white flex items-center gap-2">🅲 組合 C：淨白淡斑組</h2>
+                    <p class="text-sm md:text-base text-slate-400 mt-2 font-medium">【源+潤+澤】 ｜ 阻斷色素信號・無油立體淨白</p>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <div class="bg-purple-900/50 border border-purple-400/50 rounded px-2.5 py-1 flex flex-wrap items-center gap-1.5 shadow-[0_0_12px_rgba(168,85,247,0.3)]">
+                            <span class="text-[10px] bg-purple-500 text-white px-1.5 py-0.5 rounded font-black tracking-widest">蜂王漿水解精華</span>
+                            <span class="text-xs text-purple-100 font-bold">高濃度 10-HDA</span>
+                            <span class="text-sm text-rose-400 font-black ml-1">7.0~10.0%</span>
+                        </div>
+                        <span class="tag tag-science mt-1">傳明酸 (TXA) 0.8~1.2%</span>
+                        <span class="tag tag-bio mt-1">Melaclear 2 NP 複合酵素</span>
+                    </div>
+                </div>
+                <div class="text-left md:text-right mt-4 md:mt-0 price-block" data-base="9340">
+                    <p class="text-sm text-slate-400 line-through mb-1">原定價 $<span class="display-base">9,340</span></p>
+                    <span class="text-gold font-black text-3xl md:text-4xl display-new">$8,220</span>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <div class="bar-container"><div class="bar-fill bg-gray-original text-slate-300" style="width: 100%;">原定價 $9,340</div></div>
+                <div class="bar-container bar-price-block border-gold/30" data-base="9340"><div class="bar-fill bg-gold text-black" style="width: 88%;">專屬優惠 $<span class="bar-display-new">8,220</span></div></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700/50">
+                    <h4 class="font-bold text-rose-400 mb-2 text-sm">🔬 臨床科學解析</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        「澤」採用完全無油配方，運用法定濃度 <strong>傳明酸 (TXA)</strong> 抑制纖維蛋白溶酶 (Plasmin) 活性，從源頭精準切斷紫外線誘發的黑色素細胞活化信號。同時具備優異抗血管新生能力，能有效改善發炎後色素沉澱 (PIH) 與微血管擴張的泛紅問題。
+                    </p>
+                </div>
+                <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700/50">
+                    <h4 class="font-bold text-gold mb-2 text-sm">✨ 配方特色</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        追求透亮不該讓肌膚變得脆弱。我們不使用刺激酸類，而是用酵素溫和代謝暗沈。不帶油脂負擔的純粹配方，即便是比較敏弱的肌膚，也能一邊安撫小情緒，一邊安心養出從內透出來的乾淨光澤。
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-4 bg-cyan-950/40 rounded-xl p-4 border border-cyan-800/50">
+                <h4 class="font-bold text-cyan-400 mb-3 text-sm flex items-center gap-2">🤖 AI 膚質指標適配 & ⏱️ 日夜節律策略 (Circadian Rhythm)</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-[13px] text-slate-300 leading-relaxed"><strong class="text-cyan-300">🎯 AI 檢測配對：</strong>極適宜「紅區面積 > 60% (PIH色素沉澱/血管擴張)、紋理粗糙度 > 30%」。嚴重酒糟肌需謹慎評估。</p>
+                    </div>
+                    <div>
+                        <p class="text-[13px] text-slate-300 leading-relaxed"><strong class="text-cyan-300">☀️ 節律策略 (日間退紅)：</strong>高輻射易引發微血管擴張，TXA 是日間退紅利器。若 AI 顯示紅區過高，建議採**「滴管減量法」**將 [潤] 減量或捨棄，單以純水相達成零負擔淨白。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 組合 D -->
+        <div class="glass-card rounded-3xl p-6 md:p-8 animate-slide-in relative" style="animation-delay: 0.3s;">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-5 border-b border-slate-700 pb-5">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-black text-white flex items-center gap-2">🅳 組合 D：水潤提亮組</h2>
+                    <p class="text-sm md:text-base text-slate-400 mt-2 font-medium">【源+潤+蘊】 ｜ 3:1:1 脂質黃金三角・極致乾爽修護</p>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <div class="bg-orange-900/50 border border-orange-400/50 rounded px-2.5 py-1 flex flex-wrap items-center gap-1.5 shadow-[0_0_12px_rgba(249,115,22,0.3)]">
+                            <span class="text-[10px] bg-orange-500 text-white px-1.5 py-0.5 rounded font-black tracking-widest">類黃酮素,沙棘果油,維生素 C</span>
+                            <span class="text-xs text-orange-100 font-bold">Omega-7 極萃</span>
+                            <span class="text-sm text-gold font-black ml-1">3.0~8.0%</span>
+                        </div>
+                        <span class="tag tag-oil mt-1">神經醯胺 2 (Ceramide NS) 2~3%</span>
+                        <span class="tag tag-science mt-1">C12-15 乾爽油基底 60~85%</span>
+                    </div>
+                </div>
+                <div class="text-left md:text-right mt-4 md:mt-0 price-block" data-base="8040">
+                    <p class="text-sm text-slate-400 line-through mb-1">原定價 $<span class="display-base">8,040</span></p>
+                    <span class="text-gold font-black text-3xl md:text-4xl display-new">$7,070</span>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <div class="bar-container"><div class="bar-fill bg-gray-original text-slate-300" style="width: 100%;">原定價 $8,040</div></div>
+                <div class="bar-container bar-price-block border-gold/30" data-base="8040"><div class="bar-fill bg-gold text-black" style="width: 88%;">專屬優惠 $<span class="bar-display-new">7,070</span></div></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700/50">
+                    <h4 class="font-bold text-orange-400 mb-2 text-sm">🔬 臨床科學解析</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        「蘊」完美實踐了仿生皮脂黃金三角 (神經醯胺：類膽固醇：游離脂肪酸 = 3:1:1)。配方中珍貴的 <strong>沙棘果油 (Omega-7)</strong> 能強力促進上皮組織再生，搭配高達 85% 的 <strong>C12-15 烷醇苯甲酸酯</strong>，創造出如水般輕盈、完全不致粉刺的頂級「乾爽油(Dry Oil)」觸感。
+                    </p>
+                </div>
+                <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700/50">
+                    <h4 class="font-bold text-gold mb-2 text-sm">✨ 配方特色</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        極度適合長時間處於冷氣房或乾冷氣候的乾燥肌膚。微量 PEG 助溶劑讓這款精華油具備「親水凝脂」特性，接觸微量水分即秒吸收。享受被植萃油脂輕柔擁抱的感覺，讓肌膚重回絲緞般的柔嫩。
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-4 bg-cyan-950/40 rounded-xl p-4 border border-cyan-800/50">
+                <h4 class="font-bold text-cyan-400 mb-3 text-sm flex items-center gap-2">🤖 AI 膚質指標適配 & ⏱️ 日夜節律策略 (Circadian Rhythm)</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-[13px] text-slate-300 leading-relaxed"><strong class="text-cyan-300">🎯 AI 檢測配對：</strong>極適宜「U 區光澤度 < 20% (極度乾燥)、紋理粗糙度 > 60% (脫屑)」。不適宜「T 區 > 80% 且 毛孔密度 > 70%」重度油性或活躍期痤瘡。</p>
+                    </div>
+                    <div>
+                        <p class="text-[13px] text-slate-300 leading-relaxed"><strong class="text-cyan-300">🌙 節律策略 (夜間鎖水)：</strong>針對夜間 TEWL (經皮水分散失) 高峰期，或長期待在冷氣房、極端乾冷氣候。利用黃金三角脂質進行封閉性水分挽留與深層屏障修復。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 進階無基底組合 G -->
+        <div class="glass-card rounded-3xl p-6 md:p-8 animate-slide-in relative border border-slate-500/30" style="animation-delay: 0.35s;">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-5 border-b border-slate-700 pb-5">
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="bg-slate-700 text-slate-300 text-xs font-bold px-3 py-1 rounded shadow-sm border border-slate-600">🛡️ 極端敏弱 / 術後修護首選</span>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-black text-white flex items-center gap-2">🅶 組合 G：活萃精華組 (無基底高階處方)</h2>
+                    <p class="text-sm md:text-base text-slate-400 mt-2 font-medium">【丰+炁+澤+蘊】 ｜ 即時微乳化・排除香精與油酸干擾</p>
+                </div>
+                <div class="text-left md:text-right mt-4 md:mt-0 price-block" data-base="14620">
+                    <p class="text-sm text-slate-400 line-through mb-1">原定價 $<span class="display-base">14,620</span></p>
+                    <span class="text-gold font-black text-3xl md:text-4xl display-new">$12,860</span>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <div class="bar-container"><div class="bar-fill bg-gray-original text-slate-300" style="width: 100%;">原定價 $14,620</div></div>
+                <div class="bar-container bar-price-block border-gold/30" data-base="14620"><div class="bar-fill bg-gold text-black" style="width: 88%;">專屬優惠 $<span class="bar-display-new">12,860</span></div></div>
+            </div>
+
+            <div class="bg-slate-800/80 rounded-xl p-5 border-l-4 border-slate-400">
+                <h4 class="font-bold text-slate-200 mb-2 text-sm flex items-center gap-2">🔬 毒理學與微乳化科學解析</h4>
+                <ul class="text-slate-300 space-y-2 text-sm leading-relaxed">
+                    <li>✓ <strong>避開刺激原：</strong> 此進階組合刻意捨棄了「源 (含防腐劑)」與「潤 (含油酸與高濃度香精)」前導，將化學性刺激與屏障破壞風險降至最低，專為紅區面積極大、嚴重受損的極端脆弱敏感肌設計。</li>
+                    <li>✓ <strong>即時微乳化 (In-situ Micro-emulsification)：</strong> 當 [丰] 與 [蘊] 混合時，其內建的高階乳化體系會瞬間將純油相分散於水凝膠基底中，在掌心轉化為高活性的「頂級修護濃縮霜」。</li>
+                    <li>✓ 無論今天是需要蜂王漿的修護、人參的緊緻，還是傳明酸的透亮，只要滴入妳慣用的乳霜裡，就能無負擔地為自己訂製專屬深度保養。</li>
+                </ul>
+            </div>
+
+            <div class="mt-4 bg-cyan-950/40 rounded-xl p-4 border border-cyan-800/50">
+                <h4 class="font-bold text-cyan-400 mb-3 text-sm flex items-center gap-2">🤖 AI 膚質指標適配 & ⏱️ 日夜節律策略 (Circadian Rhythm)</h4>
+                <div class="grid md:grid-cols-1 gap-2">
+                    <p class="text-[13px] text-slate-300 leading-relaxed"><strong class="text-cyan-300">🎯 AI 檢測配對：</strong>專為「紅區面積 > 80%」的極端脆弱敏感肌或醫美雷射術後設計，徹底排除化學防腐劑與油酸干擾。</p>
+                    <p class="text-[13px] text-slate-300 leading-relaxed"><strong class="text-cyan-300">🛡️ 節律策略 (全天候急救)：</strong>當肌膚在夜間防禦力最薄弱，或遭遇低溫強風導致微裂泛紅時，此高滋潤無刺激組合是提供最安全重建的急救修護聖品。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 尊榮全效養護組 H -->
+        <div class="glass-card rounded-3xl p-6 md:p-8 animate-slide-in relative overflow-hidden border border-gold/50 shadow-[0_0_30px_rgba(212,175,55,0.15)]" style="animation-delay: 0.4s;">
+            <!-- 頂奢裝飾光暈 -->
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-gold opacity-10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 border-b border-slate-600 pb-5 relative z-10">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-gradient-to-r from-yellow-600 to-yellow-400 text-black text-xs font-black px-4 py-1.5 rounded-full shadow-lg border border-yellow-300/50 uppercase tracking-widest">👑 Ultimate Signature</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-black text-white">🅷 組合 H：尊榮全效養護組</h2>
+                    <p class="text-sm md:text-base text-gold mt-2 font-bold">【源+潤+丰+炁+澤+蘊】 ｜ 全方位修護矩陣・高訂醫美級療程</p>
+                </div>
+                <div class="text-left md:text-right mt-4 md:mt-0 price-block" data-base="19980">
+                    <p class="text-sm text-slate-400 line-through mb-1">原定價 $<span class="display-base">19,980</span></p>
+                    <span class="text-gold font-black text-4xl md:text-5xl display-new drop-shadow-md">$17,580</span>
+                </div>
+            </div>
+
+            <!-- 機能與容量對比 -->
+            <div class="mb-8 relative z-10">
+                <p class="text-sm text-slate-300 mb-3 font-bold flex justify-between">
+                    <span>🧪 頂級護膚規格 (單一配方 vs. 靶向全效)</span>
+                    <span class="text-gold text-xs">總容量 120ml</span>
+                </p>
+                <div class="bar-container h-8"><div class="bar-fill bg-gray-competitor text-white text-xs md:text-sm shadow-inner" style="width: 45%;">國際經典抗老奢華乳霜 (約 50ml)</div></div>
+                <div class="bar-container h-8"><div class="bar-fill bg-gradient-to-r from-yellow-600 to-yellow-400 text-black text-xs md:text-sm shadow-lg" style="width: 100%;">ESSZENBIO (靶向保濕/新生/淨白/鎖水 6劑全效)</div></div>
+            </div>
+
+            <!-- 專屬全效機能星級評鑑與競品嚴謹對標 -->
+            <div class="mb-8 relative z-10 bg-[#0f172a]/80 rounded-2xl p-5 md:p-6 border border-gold/20 shadow-2xl overflow-hidden backdrop-blur-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <p class="text-sm text-slate-200 font-bold flex items-center gap-2">
+                        🌟 臨床靶向機能對比分析
+                    </p>
+                    <span class="text-[10px] text-slate-500">基於成分學理評估</span>
+                </div>
+                <div class="overflow-x-auto pb-3 scrollbar-hide">
+                    <table class="w-full text-left text-xs md:text-sm whitespace-nowrap">
+                        <thead>
+                            <tr class="border-b border-slate-700">
+                                <th class="py-3 px-3 text-slate-400 font-medium w-1/3">核心修護維度 (對應 AI 指標)</th>
+                                <th class="py-3 px-3 text-gold font-black bg-gold/5 rounded-t-lg text-center">ESSZENBIO<br><span class="text-[10px] font-normal text-yellow-500/80">全效矩陣</span></th>
+                                <th class="py-3 px-3 text-slate-500 font-medium text-center">頂級品牌 L<br><span class="text-[10px] font-normal">(經典鉑金)</span></th>
+                                <th class="py-3 px-3 text-slate-500 font-medium text-center">頂級品牌 G<br><span class="text-[10px] font-normal">(極萃黑蘭)</span></th>
+                                <th class="py-3 px-3 text-slate-500 font-medium text-center">頂級品牌 H<br><span class="text-[10px] font-normal">(原晶修護)</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-700/50">
+                            <tr>
+                                <td class="py-3 px-3 text-slate-200">美白袪斑 <span class="bg-rose-900/40 text-rose-300 border border-rose-500/20 px-1.5 py-0.5 rounded text-[10px] ml-1">TXA/Melaclear [澤]</span></td>
+                                <td class="py-3 px-3 text-gold tracking-[0.2em] bg-gold/5 text-center font-bold">★★★★★</td>
+                                <td class="py-3 px-3 text-slate-400 tracking-[0.2em] text-center">★★<span class="text-slate-700">★★★</span></td>
+                                <td class="py-3 px-3 text-slate-400 tracking-[0.2em] text-center">★★★<span class="text-slate-700">★★</span></td>
+                                <td class="py-3 px-3 text-slate-400 tracking-[0.2em] text-center">★★★<span class="text-slate-700">★★</span></td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-3 text-slate-200">膠原新生/拉提 <span class="bg-purple-900/40 text-purple-300 border border-purple-500/20 px-1.5 py-0.5 rounded text-[10px] ml-1">10-HDA [丰]</span></td>
+                                <td class="py-3 px-3 text-gold tracking-[0.2em] bg-gold/5 text-center font-bold">★★★★★</td>
+                                <td class="py-3 px-3 text-slate-400 tracking-[0.2em] text-center">★★★★<span class="text-slate-700">★</span></td>
+                                <td class="py-3 px-3 text-slate-400 tracking-[0.2em] text-center">★★★★★</td>
+                                <td class="py-3 px-3 text-slate-400 tracking-[0.2em] text-center">★★★★<span class="text-slate-700">★</span></td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-3 text-slate-200">阻斷降解/撫紋 <span class="bg-emerald-900/40 text-emerald-300 border border-emerald-500/20 px-1.5 py-0.5 rounded text-[10px] ml-1">Compound K [炁]</span></td>
+                                <td class="py-3 px-3 text-gold tracking-[0.2em] bg-gold/5 text-center font-bold">★★★★★</td>
+                                <td class="py-3 px-3 text-slate-400 tracking-[0.2em] text-center">★★★★★</td>
+                                <td class="py-3 px-3 text-slate-400 tracking-[0.2em] text-center">★★★★<span class="text-slate-700">★</span></td>
+                                <td class="py-3 px-3 text-slate-400 tracking-[0.2em] text-center">★★★<span class="text-slate-700">★★</span></td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-3 text-slate-200">屏障脂質重建 <span class="bg-orange-900/40 text-orange-300 border border-orange-500/20 px-1.5 py-0.5 rounded text-[10px] ml-1">Ceramide/Omega-7 [蘊]</span></td>
+                                <td class="py-3 px-3 text-gold tracking-[0.2em] bg-gold/5 rounded-b-lg text-center font-bold">★★★★★</td>
+                                <td class="py-3 px-3 text-slate-400 tracking-[0.2em] text-center">★★★★<span class="text-slate-700">★</span></td>
+                                <td class="py-3 px-3 text-slate-400 tracking-[0.2em] text-center">★★★★★</td>
+                                <td class="py-3 px-3 text-slate-400 tracking-[0.2em] text-center">★★★★★</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 市場情報與價格對比 -->
+            <div class="mb-8 relative z-10">
+                <div class="flex justify-between items-end mb-3">
+                    <p class="text-sm text-slate-300 font-bold">💰 智價對標 (Value Engineering)</p>
+                    <p class="text-[11px] text-rose-400 font-bold bg-rose-400/10 px-2 py-1 rounded border border-rose-400/20">專注於高濃度 INCHI 活性物</p>
+                </div>
+                <div class="space-y-2">
+                    <div class="bar-container h-7"><div class="bar-fill bg-slate-700 text-slate-400 text-xs" style="width: 100%;">L 牌 (鉑金臻稀系列) 約 $98,000</div></div>
+                    <div class="bar-container h-7"><div class="bar-fill bg-slate-700 text-slate-400 text-xs" style="width: 58%;">G 牌 (黑蘭鑽極萃系列) 約 $57,000</div></div>
+                    <div class="bar-container h-7"><div class="bar-fill bg-slate-700 text-slate-400 text-xs" style="width: 52%;">H 牌 (創世紀原晶系列) 約 $51,000</div></div>
+                    <div class="bar-container h-9 mt-4 bar-price-block border-gold/50 shadow-[0_0_15px_rgba(212,175,55,0.2)]" data-base="19980"><div class="bar-fill text-black text-sm font-black" style="background: linear-gradient(90deg, #d4af37, #fbbf24); width: 22%;">ESSZENBIO 優惠價 $<span class="bar-display-new">17,580</span></div></div>
+                </div>
+            </div>
+
+            <div class="bg-black/40 rounded-xl p-5 border border-slate-700/50 relative z-10">
+                <h4 class="font-bold text-gold mb-3 text-sm flex items-center gap-2">👨‍⚕️ 專業保養操作與節律建議 (Clinical & Circadian Advice)</h4>
+                <p class="text-sm text-slate-300 leading-relaxed mb-3">
+                    <strong class="text-cyan-300">🎯 AI 檢測配對：</strong> 專為六項 AI 指標均顯示處於 60% 以上的重度老化、暗沉與皮脂腺嚴重萎縮的受損熟齡肌膚量身打造。
+                </p>
+                <p class="text-sm text-slate-300 leading-relaxed mb-3">
+                    高達六種產品的疊加意味著高分子流變調節劑的大量堆疊。在高溫高濕氣候下，若採傳統層層塗抹，水分無法快速揮發極易產生「起屑（Pilling）」現象。
+                </p>
+                <p class="text-sm text-slate-200 font-bold leading-relaxed border-l-2 border-gold pl-3">
+                    <strong class="text-cyan-300">☀️/🌙 節律策略：</strong> 日間強烈建議「三明治療法」——先以 [源+潤] 輕拍打底，再將 [丰+炁+澤+蘊] 於掌心溫熱微乳化後，以「按壓（Pressing）」上臉破壞高分子網絡避免起屑。夜間黃金睡眠期則可完整塗抹，發揮最強大的立體修護效價。
+                </p>
+                <div class="mt-4 pt-4 border-t border-slate-700/50 text-yellow-500 font-bold text-sm flex items-center gap-2">
+                    🎁 尊榮禮遇：購買本組即贈頂級精品美妝包 (價值 $2,200)
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 右下角浮動設定按鈕 -->
+    <button onclick="requestAdminAccess()" class="fixed bottom-6 right-6 bg-slate-900 hover:bg-slate-800 transition p-4 rounded-full border border-gold/50 text-gold shadow-[0_0_20px_rgba(212,175,55,0.3)] z-40 backdrop-blur-md">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+    </button>
+
+    <!-- 隱藏的底部折扣控制面板 -->
+    <div id="adminPanel" class="hidden fixed bottom-0 left-0 w-full bg-slate-900/95 backdrop-blur-xl border-t border-gold/30 p-6 z-50 shadow-2xl transition-transform transform translate-y-0">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-5 md:space-y-0">
+            <div class="flex items-center space-x-4">
+                <span class="text-slate-300 font-bold text-sm tracking-widest uppercase">經銷商授權折數</span>
+                <span class="text-gold font-black text-3xl"><span id="discountValue">88</span><span class="text-lg text-yellow-600">%</span></span>
+            </div>
+            
+            <div class="flex-1 px-8 w-full">
+                <input type="range" id="discountSlider" min="50" max="100" value="88" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-yellow-500">
+            </div>
+            
+            <button onclick="closeAdminPanel()" class="bg-rose-900/80 hover:bg-rose-800 text-rose-200 border border-rose-700/50 font-bold py-2.5 px-8 rounded-lg transition text-sm tracking-wider">
+                儲存設定
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const AUTH_PASSWORD = "esszen888";
+
+        function requestAdminAccess() {
+            const panel = document.getElementById('adminPanel');
+            if (panel.classList.contains('hidden')) {
+                const pwd = prompt("🔒 系統鎖定：請輸入臨床顧問專屬密碼解鎖定價模組");
+                if (pwd === AUTH_PASSWORD) {
+                    panel.classList.remove('hidden');
+                } else if (pwd !== null) {
+                    alert("❌ 密碼錯誤，拒絕存取。");
+                }
+            } else {
+                closeAdminPanel();
+            }
+        }
+
+        function closeAdminPanel() {
+            document.getElementById('adminPanel').classList.add('hidden');
+        }
+
+        document.getElementById('discountSlider').addEventListener('input', function(e) {
+            const currentDiscountRate = e.target.value;
+            document.getElementById('discountValue').innerText = currentDiscountRate;
+            updateAllPrices(currentDiscountRate / 100);
+        });
+
+        function updateAllPrices(rate) {
+            document.querySelectorAll('.price-block').forEach(block => {
+                const basePrice = parseInt(block.getAttribute('data-base'));
+                const calculatedNewPrice = Math.round(basePrice * rate);
+                
+                block.querySelector('.display-base').innerText = basePrice.toLocaleString();
+                block.querySelector('.display-new').innerText = '$' + calculatedNewPrice.toLocaleString();
+            });
+
+            document.querySelectorAll('.bar-price-block').forEach(barBlock => {
+                const basePrice = parseInt(barBlock.getAttribute('data-base'));
+                const calculatedNewPrice = Math.round(basePrice * rate);
+                
+                barBlock.querySelector('.bar-display-new').innerText = calculatedNewPrice.toLocaleString();
+            });
+        }
+    </script>
+</body>
+</html>
